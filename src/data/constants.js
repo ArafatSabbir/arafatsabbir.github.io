@@ -235,29 +235,29 @@ export const projects = [
     github: "",
     webapp: "https://gatewaytoaccess.com/",
   },
-  {
-    id: 1,
-    title: "4Kast",
-    date: "Mar 2022 - Aug 2022",
-    description:
-      "Develop a comprehensive US Stock Market analysis and visualization application leveraging the power of .Net Core for backend functionality, MySQL for database management, AWS Lambda for serverless computing, and ReactJs with Redux for a dynamic and responsive frontend.",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/test-s007.appspot.com/o/forecast.png?alt=media&token=b77ace8d-0679-453f-9ce2-70a459899903",
-    tags: [
-      ".Net",
-      "C#",
-      "TypeScript",
-      "React Js",
-      "HTML5",
-      "CSS3",
-      "MySQL",
-      "Redux",
-      "AWS",
-    ],
-    category: "job",
-    github: "",
-    webapp: "https://www.4kastadvisors.com/",
-  },
+  // {
+  //   id: 1,
+  //   title: "4Kast",
+  //   date: "Mar 2022 - Aug 2022",
+  //   description:
+  //     "Develop a comprehensive US Stock Market analysis and visualization application leveraging the power of .Net Core for backend functionality, MySQL for database management, AWS Lambda for serverless computing, and ReactJs with Redux for a dynamic and responsive frontend.",
+  //   image:
+  //     "https://firebasestorage.googleapis.com/v0/b/test-s007.appspot.com/o/forecast.png?alt=media&token=b77ace8d-0679-453f-9ce2-70a459899903",
+  //   tags: [
+  //     ".Net",
+  //     "C#",
+  //     "TypeScript",
+  //     "React Js",
+  //     "HTML5",
+  //     "CSS3",
+  //     "MySQL",
+  //     "Redux",
+  //     "AWS",
+  //   ],
+  //   category: "job",
+  //   github: "",
+  //   webapp: "https://www.4kastadvisors.com/",
+  // },
   {
     id: 2,
     title: "Roostpad",
