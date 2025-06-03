@@ -10,8 +10,10 @@ export const Bio = {
   description:
     "Looking for a position as a software engineer and enjoy putting new technology into practice. Possess strong skills in programming languages, OOP, data structures, and algorithms.",
   github: "https://github.com/arafatsabbir",
-  resume:
-    "https://drive.google.com/uc?id=1jdnkvlKh83-fb-OUckb9gxcyLvGe5Cd2&export=download",
+
+  //https://drive.google.com/file/d/1D0xSOTkAj0daZ_B5lXLSJXGyhgcF_ZmT/view?usp=drive_link
+    // "https://drive.google.com/uc?id=1jdnkvlKh83-fb-OUckb9gxcyLvGe5Cd2&export=download",
+  resume: "https://drive.google.com/uc?id=1D0xSOTkAj0daZ_B5lXLSJXGyhgcF_ZmT&export=download",
   linkedin: "https://www.linkedin.com/in/sabbirahmedcse/",
 };
 
@@ -135,8 +137,29 @@ export const skills = [
 ];
 
 export const experiences = [
-  {
+    {
     id: 0,
+    img: "https://firebasestorage.googleapis.com/v0/b/test-s007.appspot.com/o/human_resocia.jpg?alt=media&token=27d703f3-b42b-4ebb-b9be-f217e35cc6a6",
+    role: "Software Engineer",
+    company: "Human Resocia",
+    date: "Nov 2024 - Present",
+    desc: "Migrated a trade management system from VB.Net to C# and React. Developed screens, created APIs, handled invoice and inventory features, and fixed bugs. Worked in an Agile team with full Japanese communication.",
+    skills: [
+      "C#",
+      ".Net",
+      "JavaScript",
+      "ReactJS",
+      "HTML",
+      "CSS",
+      "SQL Server",
+      "Oracle",
+      "Git",
+      "Jira",
+    ],
+    doc: "",
+  },
+  {
+    id: 1,
     img: "https://firebasestorage.googleapis.com/v0/b/test-s007.appspot.com/o/kaz.png?alt=media&token=5ad8008c-951e-49b6-81cd-d7b01a7d147c",
     role: "Associate Software Engineer",
     company: "Kaz",
@@ -162,7 +185,7 @@ export const experiences = [
     doc: "",
   },
   {
-    id: 1,
+    id: 2,
     img: "https://firebasestorage.googleapis.com/v0/b/test-s007.appspot.com/o/present_it.jpg?alt=media&token=90841d38-7609-4dbc-9a79-85be26a050ab",
     role: "Junior Software Engineer",
     company: "Present IT Solutions",
@@ -210,8 +233,32 @@ export const education = [
 ];
 
 export const projects = [
-  {
+    {
     id: 0,
+    title: "ePortNet",
+    date: "Nov 2024 - Present",
+    description:
+      "Migrated legacy trade system (ePortNet) from VB.Net to C# (.NET Core) and React. Developed UI, REST APIs, handled invoicing and inventory, and fixed bugs. Worked fully in Japanese using SQL Server/Oracle.",
+    image:
+      "",
+    tags: [
+      ".Net",
+      "C#",
+      "JavaScript",
+      "React Js",
+      "HTML5",
+      "CSS3",
+      "Oracle",
+      "SQL Server",
+      "Git",
+      "Jira",
+    ],
+    category: "job",
+    github: "",
+    webapp: "https://www.fbscorp.com/portnet/lineup",
+  },
+  {
+    id: 1,
     title: "Gateway To Access",
     date: "Feb 2022 - Oct 2023",
     description:
