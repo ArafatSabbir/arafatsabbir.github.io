@@ -13,6 +13,7 @@ import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
 import ProjectDetails from "./components/Dialog/ProjectDetails";
 import { useState } from "react";
+import { LanguageProvider } from "./context/LanguageContext";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -40,6 +41,7 @@ const Wrapper = styled.div`
 function App() {
   const [openModal, setOpenModal] = useState({ state: false, project: null });
   return (
+    <LanguageProvider>
     <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
         <Navbar />
@@ -70,6 +72,7 @@ function App() {
         </Body>
       </BrowserRouter>
     </ThemeProvider>
+    </LanguageProvider>
   );
 }
 

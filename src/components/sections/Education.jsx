@@ -4,6 +4,8 @@ import { education } from "../../data/constants";
 import EducationCard from "../cards/EducationCard";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../data/translations";
 
 const Container = styled.div`
 margin-top: 100px;
@@ -51,17 +53,18 @@ const Desc = styled.div`
 `;
 
 const Education = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   return (
     <Container id="Education">
       <Wrapper>
-        <Title>Education</Title>
+        <Title>{t.educationTitle}</Title>
         <Desc
           style={{
             marginBottom: "40px",
           }}
         >
-          My education has been a journey of self-discovery and growth. My
-          educational details are as follows.
+          {t.educationDesc}
         </Desc>
 
         <VerticalTimeline>

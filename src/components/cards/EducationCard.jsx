@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../data/translations";
 
 const Top = styled.div`
   width: 100%;
@@ -72,13 +74,16 @@ const Description = styled.div`
 const Span = styled.div``;
 
 const EducationCard = ({ education }) => {
+  const { language } = useLanguage();
+  const t = translations[language];
+  const eduT = t.educationData[education.id] || {};
   return (
     <VerticalTimelineElement
       icon={
         <img
           width="100%"
           height="100%"
-          alt={education.school}
+          alt={eduT.school || education.school}
           style={{ borderRadius: "50%", objectFit: "cover" }}
           src={education.img}
         />
@@ -90,7 +95,6 @@ const EducationCard = ({ education }) => {
         background: "#1d1836",
         color: "#fff",
         boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
-        // backdropFilter: "blur(3px) saturate(106%)",
         backgroundColor: "rgba(17, 25, 40, 0.83)",
         border: "1px solid rgba(255, 255, 255, 0.125)",
         borderRadius: "6px",
@@ -98,22 +102,22 @@ const EducationCard = ({ education }) => {
       contentArrowStyle={{
         borderRight: "7px solid  rgba(255, 255, 255, 0.3)",
       }}
-      date={education.date}
+      date={eduT.date || education.date}
     >
       <Top>
         <Image src={education.img} />
         <Body>
-          <Name>{education.school}</Name>
-          <Degree>{education.degree}</Degree>
-          <Date>{education.date}</Date>
+          <Name>{eduT.school || education.school}</Name>
+          <Degree>{eduT.degree || education.degree}</Degree>
+          <Date>{eduT.date || education.date}</Date>
         </Body>
       </Top>
       <Grade>
-        <b>Grade :</b>
-        {education.grade}
+        <b>{t.gradeLabel}</b>
+        {eduT.grade || education.grade}
       </Grade>
       <Description>
-        <Span>{education.desc}</Span>
+        <Span>{eduT.desc || education.desc}</Span>
       </Description>
     </VerticalTimelineElement>
   );

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { projects } from "../../data/constants";
 import ProjectCard from "../cards/ProjectCard";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../data/translations";
 
 const Container = styled.div`
 margin-top: 100px;
@@ -95,38 +97,39 @@ const CardContainer = styled.div`
 
 const Projects = ({ openModal, setOpenModal }) => {
   const [toggle, setToggle] = useState("all");
+  const { language } = useLanguage();
+  const t = translations[language];
   return (
     <Container id="Projects">
       <Wrapper>
-        <Title>Projects</Title>
+        <Title>{t.projectsTitle}</Title>
         <Desc
           style={{
             marginBottom: "40px",
           }}
         >
-          I have worked on a wide range of projects. From web apps to android
-          apps. Here are some of my projects.
+          {t.projectsDesc}
         </Desc>
         <ToggleButtonGroup>
           <ToggleButton
             active={toggle === "all"}
             onClick={() => setToggle("all")}
           >
-            ALL
+            {t.all}
           </ToggleButton>
           <Divider />
           <ToggleButton
             active={toggle === "job"}
             onClick={() => setToggle("job")}
           >
-            Professional Projects
+            {t.professionalProjects}
           </ToggleButton>
           <Divider />
           <ToggleButton
             active={toggle === "university"}
             onClick={() => setToggle("university")}
           >
-            University Projects
+            {t.universityProjects}
           </ToggleButton>
         </ToggleButtonGroup>
         <CardContainer>

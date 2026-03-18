@@ -2,6 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { skills } from "../../data/constants";
 import { Tilt } from "react-tilt";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../data/translations";
+
+const getSkillCategoryTitle = (title, t) => {
+  return t.skillCategories[title] || title;
+};
 
 const Container = styled.div`
 display: flex;
@@ -118,24 +124,25 @@ const SkillImage = styled.img`
 `;
 
 const Skills = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   return (
     <Container id="Skills">
       <Wrapper>
-        <Title>Skills</Title>
+        <Title>{t.skillsTitle}</Title>
         <Desc
           style={{
             marginBottom: "40px",
           }}
         >
-          Here are some of my skills on which I have been working on for the
-          past 3+ years.
+          {t.skillsDesc}
         </Desc>
 
         <SkillsContainer>
           {skills.map((skill, index) => (
             <Tilt>
               <Skill key={`skill-${index}`}>
-                <SkillTitle>{skill.title}</SkillTitle>
+                <SkillTitle>{getSkillCategoryTitle(skill.title, t)}</SkillTitle>
                 <SkillList>
                   {skill.skills.map((item, index_x) => (
                     <SkillItem key={`skill-x-${index_x}`}>

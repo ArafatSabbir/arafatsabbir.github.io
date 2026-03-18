@@ -3,6 +3,8 @@ import { Link as LinkR } from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
 import { MenuRounded } from "@mui/icons-material";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -135,6 +137,8 @@ const MobileMenu = styled.ul`
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
+  const { language, toggleLanguage } = useLanguage();
+  const t = translations[language];
   return (
     <Nav>
       <NavbarContainer>
@@ -149,29 +153,29 @@ const Navbar = () => {
         </MobileIcon>
 
         <NavItems>
-          <NavLink href="#About">About</NavLink>
-          <NavLink href="#Skills">Skills</NavLink>
-          <NavLink href="#Experience">Experience</NavLink>
-          <NavLink href="#Projects">Projects</NavLink>
-          <NavLink href="#Education">Education</NavLink>
+          <NavLink href="#About">{t.about}</NavLink>
+          <NavLink href="#Skills">{t.skills}</NavLink>
+          <NavLink href="#Experience">{t.experience}</NavLink>
+          <NavLink href="#Projects">{t.projects}</NavLink>
+          <NavLink href="#Education">{t.education}</NavLink>
         </NavItems>
 
         {isOpen && (
           <MobileMenu isOpen={isOpen}>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#About">
-              About
+              {t.about}
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Skills">
-              Skills
+              {t.skills}
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Experience">
-              Experience
+              {t.experience}
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Projects">
-              Projects
+              {t.projects}
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
-              Education
+              {t.education}
             </NavLink>
             <GithubButton
               href={Bio.github}
@@ -181,14 +185,35 @@ const Navbar = () => {
                 color: theme.text_primary,
               }}
             >
-              Github Profile
+              {t.githubProfile}
+            </GithubButton>
+            <GithubButton
+              as="button"
+              onClick={toggleLanguage}
+              style={{
+                background: "transparent",
+                cursor: "pointer",
+              }}
+            >
+              {language === "en" ? "日本語" : "EN"}
             </GithubButton>
           </MobileMenu>
         )}
 
         <ButtonContainer>
           <GithubButton href={Bio.github} target="_Blank">
-            Github Profile
+            {t.githubProfile}
+          </GithubButton>
+          <GithubButton
+            as="button"
+            onClick={toggleLanguage}
+            style={{
+              background: "transparent",
+              cursor: "pointer",
+              marginLeft: "12px",
+            }}
+          >
+            {language === "en" ? "日本語" : "EN"}
           </GithubButton>
         </ButtonContainer>
       </NavbarContainer>

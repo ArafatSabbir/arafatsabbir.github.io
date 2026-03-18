@@ -5,6 +5,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../data/translations";
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -85,23 +87,25 @@ const Copyright = styled.p`
 `;
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Sabbir Ahmed</Logo>
+        <Logo>{t.name}</Logo>
         <Nav>
-          <NavLink href="#About">About</NavLink>
-          <NavLink href="#Skills">Skills</NavLink>
-          <NavLink href="#Experience">Experience</NavLink>
-          <NavLink href="#Projects">Projects</NavLink>
-          <NavLink href="#Education">Education</NavLink>
+          <NavLink href="#About">{t.about}</NavLink>
+          <NavLink href="#Skills">{t.skills}</NavLink>
+          <NavLink href="#Experience">{t.experience}</NavLink>
+          <NavLink href="#Projects">{t.projects}</NavLink>
+          <NavLink href="#Education">{t.education}</NavLink>
         </Nav>
         <SocialMediaIcons>
           <SocialMediaIcon href={Bio.linkedin} target="display">
             <LinkedInIcon />
           </SocialMediaIcon>
         </SocialMediaIcons>
-        <Copyright>&copy; 2024 Sabbir Ahmed. All rights reserved.</Copyright>
+        <Copyright>{t.copyright}</Copyright>
       </FooterWrapper>
     </FooterContainer>
   );

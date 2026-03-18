@@ -1,4 +1,4 @@
-import abcd from "../images/cou.jpg";
+import elysiumLogo from "../images/elysium.png";
 
 export const Bio = {
   name: "Sabbir Ahmed",
@@ -14,6 +14,7 @@ export const Bio = {
   //https://drive.google.com/file/d/1D0xSOTkAj0daZ_B5lXLSJXGyhgcF_ZmT/view?usp=drive_link
     // "https://drive.google.com/uc?id=1jdnkvlKh83-fb-OUckb9gxcyLvGe5Cd2&export=download",
   resume: "https://drive.google.com/uc?id=1D0xSOTkAj0daZ_B5lXLSJXGyhgcF_ZmT&export=download",
+  resumeJP: "",
   linkedin: "https://www.linkedin.com/in/sabbirahmedcse/",
 };
 
@@ -128,6 +129,16 @@ export const skills = [
           "https://www.vectorlogo.zone/logos/atlassian_jira/atlassian_jira-icon.svg",
       },
       {
+        name: "Jenkins",
+        image:
+          "https://www.jenkins.io/images/logos/jenkins/jenkins.svg",
+      },
+      {
+        name: "GitHub Copilot",
+        image:
+          "https://github.githubassets.com/images/modules/logos_page/copilot-mark.svg",
+      },
+      {
         name: "AWS",
         image:
           "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg",
@@ -137,7 +148,7 @@ export const skills = [
 ];
 
 export const experiences = [
-    {
+  {
     id: 0,
     img: "https://firebasestorage.googleapis.com/v0/b/test-s007.appspot.com/o/human_resocia.jpg?alt=media&token=27d703f3-b42b-4ebb-b9be-f217e35cc6a6",
     role: "Software Engineer",
@@ -160,6 +171,27 @@ export const experiences = [
   },
   {
     id: 1,
+    img: elysiumLogo,
+    role: "Software Engineer",
+    company: "Elysium",
+    date: "Jan 2026 - Present",
+    desc: "Working as frontend React + TypeScript, backend Ruby, C++, C#, and CI/CD. Contributing to their internal 3D/CAD project.",
+    skills: [
+      "ReactJS",
+      "TypeScript",
+      "Ruby",
+      "C++",
+      "C#",
+      "Jenkins",
+      "GitHub Actions",
+      "Python",
+      "PowerShell",
+      "3D/CAD",
+    ],
+    doc: "",
+  },
+  {
+    id: 2,
     img: "https://firebasestorage.googleapis.com/v0/b/test-s007.appspot.com/o/kaz.png?alt=media&token=5ad8008c-951e-49b6-81cd-d7b01a7d147c",
     role: "Associate Software Engineer",
     company: "Kaz",
@@ -185,7 +217,7 @@ export const experiences = [
     doc: "",
   },
   {
-    id: 2,
+    id: 3,
     img: "https://firebasestorage.googleapis.com/v0/b/test-s007.appspot.com/o/present_it.jpg?alt=media&token=90841d38-7609-4dbc-9a79-85be26a050ab",
     role: "Junior Software Engineer",
     company: "Present IT Solutions",
