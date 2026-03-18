@@ -12,6 +12,8 @@ import {
   headTextAnimation,
 } from "../../utils/motion";
 import StarCanvas from "../canvas/Stars";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../data/translations";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -215,7 +217,21 @@ const HeroBg = styled.div`
   }
 `;
 
+const ResumeButtonContainer = styled.div`
+  display: flex;
+  gap: 16px;
+  width: 95%;
+  max-width: 620px;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
 const Hero = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   return (
     <div id="About">
       <HeroContainer>
@@ -229,14 +245,15 @@ const Hero = () => {
             <HeroLeftContainer>
               <motion.div {...headTextAnimation}>
                 <Title>
-                  Hi, I am <br /> {Bio.name}
+                  {t.greeting} <br /> {t.name}
                 </Title>
                 <TextLoop>
-                  I am a
+                  {t.iAmA}
                   <Span>
                     <Typewriter
+                      key={language}
                       options={{
-                        strings: Bio.roles,
+                        strings: t.roles,
                         autoStart: true,
                         loop: true,
                       }}
@@ -246,12 +263,19 @@ const Hero = () => {
               </motion.div>
 
               <motion.div {...headContentAnimation}>
-                <SubTitle>{Bio.description}</SubTitle>
+                <SubTitle>{t.description}</SubTitle>
               </motion.div>
 
-              <ResumeButton href={Bio.resume} target="_blank">
-                Check Resume
-              </ResumeButton>
+              <ResumeButtonContainer>
+                <ResumeButton href={Bio.resume} target="_blank">
+                  {t.checkResume}
+                </ResumeButton>
+                {Bio.resumeJP && (
+                  <ResumeButton href={Bio.resumeJP} target="_blank">
+                    {t.checkResumeJP}
+                  </ResumeButton>
+                )}
+              </ResumeButtonContainer>
             </HeroLeftContainer>
             <HeroRightContainer>
               <motion.div {...headContentAnimation}>

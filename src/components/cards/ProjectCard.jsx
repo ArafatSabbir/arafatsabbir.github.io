@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../data/translations";
 
 const Card = styled.div`
   width: 330px;
@@ -104,18 +106,21 @@ const Button = styled.a`
 `;
 
 const ProjectCard = ({ project, setOpenModal }) => {
+  const { language } = useLanguage();
+  const t = translations[language];
+  const projT = t.projectData[project.id] || {};
   return (
     <Card onClick={() => setOpenModal({ state: true, project: project })}>
       <Image src={project.image} />
       <Tags>
         {project.tags?.map((tag, index) => (
-          <Tag>{tag}</Tag>
+          <Tag key={index}>{tag}</Tag>
         ))}
       </Tags>
       <Details>
-        <Title>{project.title}</Title>
-        <Date>{project.date}</Date>
-        <Description>{project.description}</Description>
+        <Title>{projT.title || project.title}</Title>
+        <Date>{projT.date || project.date}</Date>
+        <Description>{projT.description || project.description}</Description>
       </Details>
       <Members>
         {project.member?.map((member) => (

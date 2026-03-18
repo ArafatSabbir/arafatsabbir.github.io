@@ -4,6 +4,8 @@ import { experiences } from "../../data/constants";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import ExperienceCard from "../cards/ExperienceCard";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../data/translations";
 
 const Container = styled.div`
 margin-top: 100px;
@@ -51,17 +53,18 @@ const Desc = styled.div`
 `;
 
 const Experience = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
   return (
     <Container id="Experience">
       <Wrapper>
-        <Title>Experience</Title>
+        <Title>{t.experienceTitle}</Title>
         <Desc
           style={{
             marginBottom: "40px",
           }}
         >
-          My work experience as a software engineer and working on different
-          companies and projects.
+          {t.experienceDesc}
         </Desc>
 
         <VerticalTimeline>

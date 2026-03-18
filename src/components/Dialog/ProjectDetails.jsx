@@ -2,6 +2,8 @@ import { CloseRounded, GitHub, LinkedIn } from "@mui/icons-material";
 import { Modal } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../data/translations";
 
 const Container = styled.div`
   width: 100%;
@@ -182,6 +184,9 @@ const Button = styled.a`
 
 const ProjectDetails = ({ openModal, setOpenModal }) => {
   const project = openModal?.project;
+  const { language } = useLanguage();
+  const t = translations[language];
+  const projT = project ? (t.projectData[project.id] || {}) : {};
   return (
     <Modal
       open={true}
@@ -199,17 +204,17 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
             onClick={() => setOpenModal({ state: false, project: null })}
           />
           <Image src={project?.image} />
-          <Title>{project?.title}</Title>
-          <Date>{project.date}</Date>
+          <Title>{projT.title || project?.title}</Title>
+          <Date>{projT.date || project.date}</Date>
           <Tags>
             {project?.tags.map((tag) => (
               <Tag>{tag}</Tag>
             ))}
           </Tags>
-          <Desc>{project?.description}</Desc>
+          <Desc>{projT.description || project?.description}</Desc>
           {project.member && (
             <>
-              <Label>Members</Label>
+              <Label>{t.members}</Label>
               <Members>
                 {project?.member.map((member) => (
                   <Member>
@@ -244,13 +249,13 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
             {project?.github && (
               <Button href={project
                 ?.github} target="new">
-                View Code
+                {t.viewCode}
               </Button>
             )}
             {project?.webapp && (
               <Button href={project
                 ?.webapp} target="new">
-                View Live App
+                {t.viewLiveApp}
               </Button>
             )}
 
